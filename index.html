@@ -10,11 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --blue: #2563eb;
@@ -35,11 +31,7 @@
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* ===== ШАПКА ===== */
         .header {
@@ -57,56 +49,91 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        .logo img {
-            height: 52px;
-            width: auto;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        .logo-text .name {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--blue-dark);
-            line-height: 1.1;
-        }
-        .logo-text .tagline {
-            font-size: 0.75rem;
-            color: var(--gray-text);
-            font-weight: 500;
-            letter-spacing: 0.02em;
-        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { height: 52px; width: auto; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .name { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; color: var(--blue-dark); line-height: 1.1; }
+        .logo-text .tagline { font-size: 0.75rem; color: var(--gray-text); font-weight: 500; letter-spacing: 0.02em; }
 
-        .header-phone {
-            display: flex;
+        /* ===== ВЫПАДАЮЩЕЕ МЕНЮ С НОМЕРАМИ ===== */
+        .phone-dropdown { position: relative; }
+
+        .phone-trigger {
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
-            color: var(--graphite);
-            font-weight: 700;
-            font-size: 1.05rem;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 50px;
-            background: var(--gray-light);
-            transition: 0.3s;
-        }
-        .header-phone:hover {
             background: var(--blue);
             color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
         }
-        .header-phone svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
+        .phone-trigger:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
         }
+        .phone-trigger svg { width: 18px; height: 18px; stroke: currentColor; }
+        .phone-trigger .chevron { width: 14px; height: 14px; transition: transform 0.3s; }
+        .phone-dropdown.open .phone-trigger .chevron { transform: rotate(180deg); }
+
+        .phone-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.15);
+            border: 1px solid var(--gray-mid);
+            padding: 8px;
+            min-width: 290px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: 0.25s;
+            z-index: 200;
+        }
+        .phone-dropdown.open .phone-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .phone-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--graphite);
+            transition: 0.2s;
+        }
+        .phone-menu-item:hover { background: var(--gray-light); }
+        .phone-menu-item + .phone-menu-item { border-top: 1px solid var(--gray-mid); border-radius: 0; }
+        .phone-menu-item:last-child:hover { border-radius: 0 0 12px 12px; }
+        .phone-menu-item:first-child:hover { border-radius: 12px 12px 0 0; }
+
+        .phone-menu-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .phone-menu-info { display: flex; flex-direction: column; gap: 2px; }
+        .phone-menu-info .name { font-weight: 700; font-size: 0.95rem; color: var(--graphite); }
+        .phone-menu-info .number { font-size: 0.9rem; color: var(--gray-text); font-weight: 500; }
 
         /* ===== ГЛАВНЫЙ БЛОК ===== */
         .hero {
@@ -118,10 +145,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 500px;
-            height: 500px;
+            top: -100px; right: -100px;
+            width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
@@ -147,11 +172,7 @@
             color: var(--blue);
             margin-bottom: 24px;
         }
-        .hero-badge svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--blue);
-        }
+        .hero-badge svg { width: 16px; height: 16px; stroke: var(--blue); }
         .hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
@@ -160,9 +181,7 @@
             color: var(--graphite);
             margin-bottom: 24px;
         }
-        .hero h1 .accent {
-            color: var(--blue);
-        }
+        .hero h1 .accent { color: var(--blue); }
         .hero p {
             font-size: 1.15rem;
             color: #475569;
@@ -170,35 +189,8 @@
             margin-bottom: 36px;
             line-height: 1.7;
         }
-        .hero-cta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn-call {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, var(--amber), var(--amber-hover));
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.15rem;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
-            transition: 0.3s;
-        }
-        .btn-call:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 40px rgba(245, 158, 11, 0.45);
-        }
-        .btn-call svg {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
-        }
+        .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
         .hero-note {
             font-size: 0.9rem;
             color: var(--gray-text);
@@ -206,13 +198,8 @@
             align-items: center;
             gap: 6px;
         }
-        .hero-note svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--gray-text);
-        }
+        .hero-note svg { width: 16px; height: 16px; stroke: var(--gray-text); }
 
-        /* Правая часть hero: карточка с инфо */
         .hero-card {
             background: #fff;
             border-radius: 24px;
@@ -224,22 +211,12 @@
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: var(--graphite);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .hero-card h3 svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--blue);
-        }
-        .hero-card-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
+        .hero-card h3 svg { width: 22px; height: 22px; stroke: var(--blue); }
+        .hero-card-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
         .hero-card-list li {
             display: flex;
             align-items: flex-start;
@@ -247,29 +224,16 @@
             font-size: 0.98rem;
             color: #475569;
         }
-        .hero-card-list li svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--blue);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .hero-card-list li strong {
-            color: var(--graphite);
-            font-weight: 600;
-        }
+        .hero-card-list li svg { width: 20px; height: 20px; stroke: var(--blue); flex-shrink: 0; margin-top: 2px; }
+        .hero-card-list li strong { color: var(--graphite); font-weight: 600; }
 
-        /* ===== БЛОК О СЕРВИСЕ ===== */
-        .about {
-            padding: 80px 0;
-            background: #fff;
-        }
+        /* ===== О СЕРВИСЕ ===== */
+        .about { padding: 80px 0; background: #fff; }
         .section-title {
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 16px;
-            color: var(--graphite);
             text-align: center;
         }
         .section-subtitle {
@@ -309,29 +273,12 @@
             border-radius: 14px;
             margin-bottom: 18px;
         }
-        .about-card .icon svg {
-            width: 26px;
-            height: 26px;
-            stroke: var(--blue);
-            stroke-width: 2;
-        }
-        .about-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--graphite);
-        }
-        .about-card p {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            line-height: 1.65;
-        }
+        .about-card .icon svg { width: 26px; height: 26px; stroke: var(--blue); stroke-width: 2; }
+        .about-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+        .about-card p { font-size: 0.95rem; color: var(--gray-text); line-height: 1.65; }
 
         /* ===== УСЛУГИ ===== */
-        .services {
-            padding: 80px 0;
-            background: var(--gray-light);
-        }
+        .services { padding: 80px 0; background: var(--gray-light); }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -362,23 +309,41 @@
             border-radius: 12px;
             flex-shrink: 0;
         }
-        .service-item .icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--blue);
-            stroke-width: 2;
+        .service-item .icon svg { width: 22px; height: 22px; stroke: var(--blue); stroke-width: 2; }
+        .service-item .text { font-size: 1rem; font-weight: 600; }
+
+        /* ===== ГАЛЕРЕЯ ===== */
+        .gallery { padding: 80px 0; background: #fff; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .service-item .text {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--graphite);
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            border: 1px solid var(--gray-mid);
+            box-shadow: 0 8px 30px rgba(30, 58, 138, 0.06);
+            transition: 0.3s;
         }
+        .gallery-item:hover {
+            box-shadow: 0 16px 40px rgba(30, 58, 138, 0.12);
+            transform: translateY(-4px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.03); }
 
         /* ===== ЦЕНЫ ===== */
-        .prices {
-            padding: 80px 0;
-            background: #fff;
-        }
+        .prices { padding: 80px 0; background: var(--gray-light); }
         .prices-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -387,7 +352,7 @@
             margin: 0 auto;
         }
         .price-card {
-            background: var(--gray-light);
+            background: #fff;
             border-radius: 20px;
             padding: 32px;
             border: 1px solid var(--gray-mid);
@@ -401,35 +366,19 @@
             border-color: var(--amber);
             box-shadow: 0 8px 30px rgba(245, 158, 11, 0.1);
         }
-        .price-card .name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--graphite);
-        }
-        .price-card .price {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--blue);
-            white-space: nowrap;
-        }
-        .price-card .price small {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--gray-text);
-        }
+        .price-card .name { font-size: 1.1rem; font-weight: 600; }
+        .price-card .price { font-size: 1.4rem; font-weight: 800; color: var(--blue); white-space: nowrap; }
+        .price-card .price small { font-size: 0.75rem; font-weight: 500; color: var(--gray-text); }
 
         /* ===== ОТЗЫВЫ ===== */
-        .reviews {
-            padding: 80px 0;
-            background: var(--gray-light);
-        }
+        .reviews { padding: 80px 0; background: #fff; }
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
         .review-card {
-            background: #fff;
+            background: var(--gray-light);
             border-radius: 20px;
             padding: 32px;
             border: 1px solid var(--gray-mid);
@@ -438,13 +387,9 @@
         .review-card:hover {
             box-shadow: 0 12px 40px rgba(30, 58, 138, 0.08);
             transform: translateY(-4px);
+            background: #fff;
         }
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 18px;
-        }
+        .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
         .review-avatar {
             width: 52px;
             height: 52px;
@@ -458,28 +403,12 @@
             font-size: 1.3rem;
             flex-shrink: 0;
         }
-        .review-info .name {
-            font-weight: 700;
-            color: var(--graphite);
-            font-size: 1rem;
-        }
-        .review-info .date {
-            font-size: 0.85rem;
-            color: var(--gray-text);
-        }
-        .review-stars {
-            color: var(--amber);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-        .review-text {
-            font-size: 0.98rem;
-            color: #475569;
-            line-height: 1.7;
-        }
+        .review-info .name { font-weight: 700; font-size: 1rem; }
+        .review-info .date { font-size: 0.85rem; color: var(--gray-text); }
+        .review-stars { color: var(--amber); font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 12px; }
+        .review-text { font-size: 0.98rem; color: #475569; line-height: 1.7; }
 
-        /* ===== КОНТАКТЫ / CTA ===== */
+        /* ===== CTA ===== */
         .contact {
             padding: 80px 0;
             background: linear-gradient(135deg, var(--blue-dark), var(--blue));
@@ -491,30 +420,14 @@
         .contact::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
             border-radius: 50%;
         }
-        .contact .container {
-            position: relative;
-            z-index: 2;
-        }
-        .contact h2 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        .contact p {
-            font-size: 1.15rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
+        .contact .container { position: relative; z-index: 2; }
+        .contact h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+        .contact p { font-size: 1.15rem; opacity: 0.9; max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
         .contact-info {
             display: flex;
             justify-content: center;
@@ -528,36 +441,7 @@
             gap: 12px;
             font-size: 1.05rem;
         }
-        .contact-item svg {
-            width: 22px;
-            height: 22px;
-            stroke: #fff;
-            opacity: 0.9;
-        }
-        .btn-call-large {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            padding: 22px 52px;
-            background: var(--amber);
-            color: #fff;
-            font-weight: 800;
-            font-size: 1.25rem;
-            border-radius: 60px;
-            text-decoration: none;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-            transition: 0.3s;
-        }
-        .btn-call-large:hover {
-            background: var(--amber-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        .btn-call-large svg {
-            width: 26px;
-            height: 26px;
-            stroke: currentColor;
-        }
+        .contact-item svg { width: 22px; height: 22px; stroke: #fff; opacity: 0.9; }
 
         /* ===== ФУТЕР ===== */
         .footer {
@@ -567,84 +451,30 @@
             font-size: 0.9rem;
             text-align: center;
         }
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .footer strong {
-            color: #e2e8f0;
-        }
+        .footer .container { display: flex; flex-direction: column; gap: 8px; }
+        .footer strong { color: #e2e8f0; }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 900px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-cta {
-                justify-content: center;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .hero-card {
-                text-align: left;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .contact h2 {
-                font-size: 1.8rem;
-            }
-            .contact-info {
-                flex-direction: column;
-                gap: 16px;
-                align-items: center;
-            }
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .hero-cta { justify-content: center; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-card { text-align: left; }
+            .section-title { font-size: 1.8rem; }
+            .contact h2 { font-size: 1.8rem; }
+            .contact-info { flex-direction: column; gap: 16px; align-items: center; }
         }
         @media (max-width: 600px) {
-            .header-inner {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .logo img {
-                height: 42px;
-            }
-            .hero {
-                padding: 50px 0 60px;
-            }
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .btn-call {
-                padding: 16px 32px;
-                font-size: 1rem;
-                width: 100%;
-                justify-content: center;
-            }
-            .btn-call-large {
-                padding: 18px 32px;
-                font-size: 1.05rem;
-                width: 100%;
-                justify-content: center;
-            }
-            .price-card {
-                flex-direction: column;
-                text-align: center;
-                align-items: flex-start;
-            }
-            .price-card .price {
-                align-self: flex-end;
-            }
+            .header-inner { flex-direction: column; gap: 12px; }
+            .logo img { height: 42px; }
+            .hero { padding: 50px 0 60px; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero p { font-size: 1rem; }
+            .phone-menu { right: auto; left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 280px; }
+            .phone-dropdown.open .phone-menu { transform: translateX(-50%) translateY(0); }
+            .price-card { flex-direction: column; text-align: left; align-items: flex-start; }
+            .price-card .price { align-self: flex-end; }
         }
     </style>
 </head>
@@ -661,10 +491,30 @@
             </div>
         </a>
 
-        <a href="tel:+78432555000" class="header-phone">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Позвонить
-        </a>
+        <!-- ВЫПАДАЮЩЕЕ МЕНЮ С ДВУМЯ НОМЕРАМИ -->
+        <div class="phone-dropdown" id="phoneDropdownHeader">
+            <button class="phone-trigger" onclick="toggleDropdown('phoneDropdownHeader')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Позвонить
+                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="phone-menu">
+                <a href="tel:+79603767356" class="phone-menu-item">
+                    <div class="phone-menu-avatar">С</div>
+                    <div class="phone-menu-info">
+                        <span class="name">Сергей</span>
+                        <span class="number">+7 (960) 376-73-56</span>
+                    </div>
+                </a>
+                <a href="tel:+79176224243" class="phone-menu-item">
+                    <div class="phone-menu-avatar">А</div>
+                    <div class="phone-menu-info">
+                        <span class="name">Александр</span>
+                        <span class="number">+7 (917) 622-42-43</span>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -683,10 +533,29 @@
                 Ремонт автомобилей и квадроциклов любой сложности. Найдём причину неисправности, предложим оптимальный вариант и сделаем работу в срок. 15 лет опыта, честные цены, свои запчасти.
             </p>
             <div class="hero-cta">
-                <a href="tel:+78432555000" class="btn-call">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    Позвонить и записаться
-                </a>
+                <div class="phone-dropdown" id="phoneDropdownHero">
+                    <button class="phone-trigger" onclick="toggleDropdown('phoneDropdownHero')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Позвонить и записаться
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="phone-menu">
+                        <a href="tel:+79603767356" class="phone-menu-item">
+                            <div class="phone-menu-avatar">С</div>
+                            <div class="phone-menu-info">
+                                <span class="name">Сергей</span>
+                                <span class="number">+7 (960) 376-73-56</span>
+                            </div>
+                        </a>
+                        <a href="tel:+79176224243" class="phone-menu-item">
+                            <div class="phone-menu-avatar">А</div>
+                            <div class="phone-menu-info">
+                                <span class="name">Александр</span>
+                                <span class="number">+7 (917) 622-42-43</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <span class="hero-note">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     Пн–Пт с 08:30 до 19:00
@@ -709,41 +578,4 @@
                     <span><strong>Пн–Пт:</strong> 08:30 – 19:00</span>
                 </li>
                 <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M6.34 17.66l-2.83 2.83M17.66 6.34l2.83-2.83M4.93 19.07l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
-                    <span><strong>Подъёмник</strong> и диагностическое оборудование</span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                    <span><strong>Можно со своими запчастями</strong></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- ===== О СЕРВИСЕ ===== -->
-<section class="about">
-    <div class="container">
-        <h2 class="section-title">Почему выбирают ЭЛИТЕК</h2>
-        <p class="section-subtitle">
-            Мы не просто меняем детали — мы разбираемся, почему техника неисправна, и устраняем причину. Работаем с автомобилями и квадроциклами.
-        </p>
-
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <h3>15 лет опыта</h3>
-                <p>С 2009 года ремонтируем автомобили всех марок — от Audi и BMW до ВАЗ и ГАЗ. Знаем, как устроена техника, и не боимся сложных случаев.</p>
-            </div>
-            <div class="about-card">
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <h3>Сложные случаи</h3>
-                <p>Если в другом сервисе не смогли найти причину или предложили менять всё подряд — приезжайте к нам. Разберёмся и починим.</p>
-            </div>
-            <div class="about-card">
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke
+                    <svg xmlns="http://www.w3.org/2000/svg"
