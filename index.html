@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoTech — Автосервис полного цикла</title>
-    <!-- Фавикон -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f7aff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E">
+    <title>ЭЛИТЕК — автосервис в Ульяновске | Ремонт авто и квадроциклов</title>
+    <meta name="description" content="ЭЛИТЕК — автосервис в центре Ульяновска. Ремонт автомобилей и квадроциклов любой сложности. 15 лет опыта. Диагностика от 1000₽.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -16,11 +16,22 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --blue: #2563eb;
+            --blue-dark: #1e3a8a;
+            --amber: #f59e0b;
+            --amber-hover: #d97706;
+            --graphite: #1e293b;
+            --gray-light: #f8fafc;
+            --gray-mid: #e2e8f0;
+            --gray-text: #64748b;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0e1a;
-            color: #f0f4ff;
-            line-height: 1.5;
+            background: #ffffff;
+            color: var(--graphite);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -30,711 +41,709 @@
             padding: 0 24px;
         }
 
-        /* Hero с фоновым изображением (боксы) */
-        .bg-garage {
-            position: relative;
-            background: radial-gradient(ellipse at 20% 30%, #1a2a6c, #0a0e1a 70%);
-            overflow: hidden;
-        }
-        .bg-garage::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://i.imgur.com/gEH85W1.jpeg') center/cover no-repeat;
-            opacity: 0.12;
-            pointer-events: none;
-        }
-        .bg-garage::after {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(79, 122, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
+        /* ===== ШАПКА ===== */
         .header {
-            padding: 24px 0 40px;
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid var(--gray-mid);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             gap: 20px;
-            position: relative;
-            z-index: 2;
+            flex-wrap: wrap;
         }
-
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            color: #f0f4ff;
         }
-        .logo span {
-            background: linear-gradient(135deg, #6c8cff, #a78bfa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .logo img {
+            height: 52px;
+            width: auto;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-text .name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--blue-dark);
+            line-height: 1.1;
+        }
+        .logo-text .tagline {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
 
-        .header-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 32px;
-            border-radius: 60px;
-            color: #f0f4ff;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: 0.3s;
-            backdrop-filter: blur(4px);
-            display: inline-flex;
+        .header-phone {
+            display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--graphite);
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: var(--gray-light);
+            transition: 0.3s;
         }
-        .header-btn:hover {
-            background: #4f7aff;
-            border-color: #4f7aff;
-            box-shadow: 0 8px 30px rgba(79, 122, 255, 0.3);
-            transform: translateY(-2px);
+        .header-phone:hover {
+            background: var(--blue);
+            color: #fff;
         }
-        .header-btn svg {
-            width: 18px;
-            height: 18px;
+        .header-phone svg {
+            width: 20px;
+            height: 20px;
             stroke: currentColor;
         }
 
+        /* ===== ГЛАВНЫЙ БЛОК ===== */
         .hero {
-            padding: 40px 0 80px;
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, var(--gray-light) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-inner {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 60px;
             align-items: center;
             position: relative;
             z-index: 2;
         }
-
-        .hero-content h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
-        }
-        .hero-content h1 .highlight {
-            background: linear-gradient(135deg, #7ba3ff, #a78bfa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #b0c4f0;
-            max-width: 500px;
-            margin-bottom: 32px;
-        }
-
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(79, 122, 255, 0.15);
-            border: 1px solid rgba(79, 122, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 60px;
-            font-size: 0.9rem;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #8bb1ff;
-            margin-bottom: 20px;
-            backdrop-filter: blur(4px);
+            color: var(--blue);
+            margin-bottom: 24px;
         }
         .hero-badge svg {
-            width: 18px;
-            height: 18px;
-            stroke: #8bb1ff;
+            width: 16px;
+            height: 16px;
+            stroke: var(--blue);
         }
-
-        .btn-primary {
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--graphite);
+            margin-bottom: 24px;
+        }
+        .hero h1 .accent {
+            color: var(--blue);
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #475569;
+            max-width: 560px;
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-call {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 18px 48px;
-            background: linear-gradient(135deg, #4f7aff, #6c5ce7);
+            gap: 12px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--amber), var(--amber-hover));
             color: #fff;
             font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 60px;
+            font-size: 1.15rem;
+            border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 12px 40px rgba(79, 122, 255, 0.3);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
             transition: 0.3s;
-            border: none;
-            cursor: pointer;
         }
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(79, 122, 255, 0.4);
+        .btn-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(245, 158, 11, 0.45);
         }
-        .btn-primary svg {
-            width: 22px;
-            height: 22px;
+        .btn-call svg {
+            width: 24px;
+            height: 24px;
             stroke: currentColor;
         }
-
-        .hero-image {
+        .hero-note {
+            font-size: 0.9rem;
+            color: var(--gray-text);
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 6px;
         }
-        .hero-image .wrench-icon {
-            width: 200px;
-            height: 200px;
-            stroke: #7ba3ff;
-            stroke-width: 1.5;
-            filter: drop-shadow(0 20px 60px rgba(79, 122, 255, 0.2));
-            animation: float 6s ease-in-out infinite;
+        .hero-note svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--gray-text);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(-2deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(-2deg); }
+        /* Правая часть hero: карточка с инфо */
+        .hero-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.1);
+            border: 1px solid var(--gray-mid);
         }
-
-        .section-title {
-            font-size: 2.6rem;
+        .hero-card h3 {
+            font-size: 1.15rem;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            color: var(--graphite);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-card h3 svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--blue);
+        }
+        .hero-card-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .hero-card-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.98rem;
+            color: #475569;
+        }
+        .hero-card-list li svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--blue);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .hero-card-list li strong {
+            color: var(--graphite);
+            font-weight: 600;
+        }
+
+        /* ===== БЛОК О СЕРВИСЕ ===== */
+        .about {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--graphite);
+            text-align: center;
         }
         .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-text);
             text-align: center;
-            color: #a0b4e0;
-            font-size: 1.1rem;
-            margin-bottom: 50px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
         }
 
-        .grid-2col {
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
         }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 28px;
+        .about-card {
+            background: var(--gray-light);
+            border-radius: 20px;
             padding: 32px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--gray-mid);
             transition: 0.3s;
-            backdrop-filter: blur(4px);
         }
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-6px);
-            border-color: rgba(79, 122, 255, 0.2);
+        .about-card:hover {
+            background: #fff;
+            border-color: var(--blue);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
+            transform: translateY(-4px);
         }
-        .feature-card .icon-wrap {
+        .about-card .icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 56px;
-            height: 56px;
-            background: rgba(79, 122, 255, 0.1);
-            border-radius: 16px;
-            margin-bottom: 16px;
+            width: 52px;
+            height: 52px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 14px;
+            margin-bottom: 18px;
         }
-        .feature-card .icon-wrap svg {
-            width: 28px;
-            height: 28px;
-            stroke: url(#iconGradient);
+        .about-card .icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--blue);
             stroke-width: 2;
         }
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
+        .about-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            color: var(--graphite);
         }
-        .feature-card p {
-            color: #b8caf0;
-            font-size: 0.98rem;
+        .about-card p {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            line-height: 1.65;
         }
 
+        /* ===== УСЛУГИ ===== */
         .services {
             padding: 80px 0;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--gray-light);
         }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
-
         .service-item {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
-            padding: 28px 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 26px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid var(--gray-mid);
             transition: 0.3s;
         }
         .service-item:hover {
-            background: rgba(79, 122, 255, 0.06);
-            border-color: rgba(79, 122, 255, 0.15);
-            transform: scale(1.02);
+            border-color: var(--blue);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.08);
+            transform: translateX(4px);
         }
-        .service-item .icon-wrap {
+        .service-item .icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
-            width: 48px;
-            height: 48px;
-            background: rgba(79, 122, 255, 0.08);
-            border-radius: 14px;
+            width: 44px;
+            height: 44px;
+            background: rgba(37, 99, 235, 0.08);
+            border-radius: 12px;
+            flex-shrink: 0;
         }
-        .service-item .icon-wrap svg {
-            width: 24px;
-            height: 24px;
-            stroke: #8bb1ff;
+        .service-item .icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--blue);
             stroke-width: 2;
         }
-        .service-item h4 {
+        .service-item .text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--graphite);
+        }
+
+        /* ===== ЦЕНЫ ===== */
+        .prices {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: var(--gray-light);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--gray-mid);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+        }
+        .price-card:hover {
+            border-color: var(--amber);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.1);
+        }
+        .price-card .name {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            color: var(--graphite);
         }
-        .service-item p {
-            font-size: 0.9rem;
-            color: #a8bce0;
+        .price-card .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--blue);
+            white-space: nowrap;
+        }
+        .price-card .price small {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray-text);
         }
 
-        .about {
-            padding: 60px 0 80px;
+        /* ===== ОТЗЫВЫ ===== */
+        .reviews {
+            padding: 80px 0;
+            background: var(--gray-light);
         }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(79, 122, 255, 0.08), rgba(108, 92, 231, 0.08));
-            border-radius: 32px;
-            padding: 48px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            text-align: center;
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
-        .highlight-box h2 {
-            font-size: 2rem;
-            margin-bottom: 12px;
+        .review-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--gray-mid);
+            transition: 0.3s;
+        }
+        .review-card:hover {
+            box-shadow: 0 12px 40px rgba(30, 58, 138, 0.08);
+            transform: translateY(-4px);
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .review-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
         }
-        .highlight-box h2 svg {
-            width: 36px;
-            height: 36px;
-            stroke: #7ba3ff;
+        .review-info .name {
+            font-weight: 700;
+            color: var(--graphite);
+            font-size: 1rem;
         }
-        .highlight-box p {
+        .review-info .date {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+        }
+        .review-stars {
+            color: var(--amber);
             font-size: 1.1rem;
-            color: #b8caf0;
-            max-width: 800px;
-            margin: 0 auto 20px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .review-text {
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.7;
         }
 
-        .gallery {
-            padding: 60px 0 80px;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-        .gallery-item {
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: 0.3s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: rgba(79, 122, 255, 0.3);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .footer {
-            padding: 40px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* ===== КОНТАКТЫ / CTA ===== */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            color: #fff;
             text-align: center;
-            color: #6a7fa8;
-            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
         }
-        .footer a {
-            color: #7d93d4;
-            text-decoration: none;
-            transition: 0.2s;
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .contact .container {
+            position: relative;
+            z-index: 2;
+        }
+        .contact h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .contact p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+        .contact-item svg {
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
+            opacity: 0.9;
+        }
+        .btn-call-large {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-        }
-        .footer a:hover {
-            color: #a8bdf7;
-        }
-        .footer .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 16px 0;
-        }
-        .footer .social-links a {
-            background: rgba(79, 122, 255, 0.12);
-            border: 1px solid rgba(79, 122, 255, 0.25);
-            padding: 12px 28px;
+            gap: 14px;
+            padding: 22px 52px;
+            background: var(--amber);
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.25rem;
             border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #f0f4ff;
-            gap: 10px;
-            backdrop-filter: blur(4px);
+            text-decoration: none;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
             transition: 0.3s;
         }
-        .footer .social-links a:hover {
-            background: #4f7aff;
-            border-color: #4f7aff;
-            box-shadow: 0 8px 30px rgba(79, 122, 255, 0.3);
-            transform: translateY(-2px);
-            color: #fff;
+        .btn-call-large:hover {
+            background: var(--amber-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
-        .footer .social-links a svg {
+        .btn-call-large svg {
+            width: 26px;
+            height: 26px;
             stroke: currentColor;
-            width: 20px;
-            height: 20px;
         }
 
+        /* ===== ФУТЕР ===== */
+        .footer {
+            padding: 32px 0;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer strong {
+            color: #e2e8f0;
+        }
+
+        /* ===== АДАПТИВ ===== */
         @media (max-width: 900px) {
-            .hero {
+            .hero-inner {
                 grid-template-columns: 1fr;
+                gap: 40px;
                 text-align: center;
-                gap: 30px;
-                padding: 20px 0 60px;
             }
-            .hero-content p {
+            .hero p {
                 margin-left: auto;
                 margin-right: auto;
             }
-            .hero-content h1 {
-                font-size: 2.8rem;
+            .hero-cta {
+                justify-content: center;
             }
-            .hero-image .wrench-icon {
-                width: 140px;
-                height: 140px;
+            .hero h1 {
+                font-size: 2.4rem;
             }
-            .grid-2col {
-                grid-template-columns: 1fr;
-            }
-            .feature-card .icon-wrap {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .logo {
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
+            .hero-card {
+                text-align: left;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            .highlight-box {
-                padding: 32px 20px;
+            .contact h2 {
+                font-size: 1.8rem;
             }
-            .hero-image .wrench-icon {
-                width: 100px;
-                height: 100px;
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .footer .social-links a {
-                padding: 10px 20px;
-                font-size: 0.85rem;
+            .contact-info {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
             }
         }
-        @media (max-width: 430px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer .social-links {
+        @media (max-width: 600px) {
+            .header-inner {
                 flex-direction: column;
-                align-items: center;
+                gap: 12px;
+            }
+            .logo img {
+                height: 42px;
+            }
+            .hero {
+                padding: 50px 0 60px;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-call {
+                padding: 16px 32px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .btn-call-large {
+                padding: 18px 32px;
+                font-size: 1.05rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .price-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: flex-start;
+            }
+            .price-card .price {
+                align-self: flex-end;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Определение градиента для иконок -->
-<svg style="position: absolute; width: 0; height: 0;">
-    <defs>
-        <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4f7aff" />
-            <stop offset="100%" stop-color="#a78bfa" />
-        </linearGradient>
-    </defs>
-</svg>
+<!-- ===== ШАПКА ===== -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="/" class="logo">
+            <img src="https://i.postimg.cc/6QBLtJGS/6PKBkbg-Ib3-Spx-Kvepg6Ij-B7K-Imhim5FTju-ACHRr-Yo-R-6d-Dr0bk6JF5f-HY0Ob-Zx-NEtt9FWmp-Rojblo1p-NZg-EYu.jpg" alt="ЭЛИТЕК — автосервис">
+            <div class="logo-text">
+                <span class="name">ЭЛИТЕК</span>
+                <span class="tagline">автосервис в Ульяновске</span>
+            </div>
+        </a>
 
-<div class="bg-garage">
-    <div class="container">
-        <!-- Шапка -->
-        <header class="header">
-            <a href="/" class="logo">
-                <span>AutoTech</span>
-            </a>
+        <a href="tel:+78432555000" class="header-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить
+        </a>
+    </div>
+</header>
 
-            <a href="https://t.me/autotech_manager" target="_blank" class="header-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                Записаться на ремонт
-            </a>
-        </header>
-
-        <!-- Главный блок -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Работаем с 2010 года
-                </div>
-                <h1>
-                    Автосервис<br>
-                    <span class="highlight">полного цикла</span>
-                </h1>
-                <p>
-                    Диагностика, ремонт двигателя, ходовой части, кузовной ремонт и техническое обслуживание. Работаем с иномарками и отечественными автомобилями.
-                </p>
-                <a href="#form" class="btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                    Записаться
+<!-- ===== ГЛАВНЫЙ БЛОК ===== -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Работаем с 2009 года
+            </div>
+            <h1>
+                Автосервис <span class="accent">ЭЛИТЕК</span> в центре Ульяновска
+            </h1>
+            <p>
+                Ремонт автомобилей и квадроциклов любой сложности. Найдём причину неисправности, предложим оптимальный вариант и сделаем работу в срок. 15 лет опыта, честные цены, свои запчасти.
+            </p>
+            <div class="hero-cta">
+                <a href="tel:+78432555000" class="btn-call">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Позвонить и записаться
                 </a>
-                <p style="margin-top: 16px; font-size: 0.95rem; color: #7d93d4;">
-                    🕒 Работаем ежедневно — <strong style="color:#f0f4ff;">с 9:00 до 21:00</strong>
-                </p>
+                <span class="hero-note">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Пн–Пт с 08:30 до 19:00
+                </span>
             </div>
-            <div class="hero-image">
-                <svg class="wrench-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-        </section>
-    </div>
-</div>
+        </div>
 
-<!-- Почему мы -->
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">Почему AutoTech?</h2>
-        <p class="section-subtitle">Профессиональный подход к каждому автомобилю</p>
-        <div class="grid-2col">
-            <div class="feature-card">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M6.34 17.66l-2.83 2.83M17.66 6.34l2.83-2.83M4.93 19.07l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
-                </div>
-                <h3>Точная диагностика</h3>
-                <p>Современное оборудование и опытные мастера найдут причину неисправности быстро и без лишних затрат.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                </div>
-                <h3>Гарантия на работы</h3>
-                <p>Даём гарантию на все виды ремонта и запчасти. Уверены в качестве своей работы.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <h3>Ремонт в срок</h3>
-                <p>Соблюдаем оговорённые сроки. Не затягиваем и всегда на связи с клиентом.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><path d="M16 2h6v6"/><path d="M12 12 22 2"/></svg>
-                </div>
-                <h3>Прозрачные цены</h3>
-                <p>Согласовываем стоимость до начала работ. Никаких скрытых платежей и сюрпризов.</p>
-            </div>
+        <div class="hero-card">
+            <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Мы находимся
+            </h3>
+            <ul class="hero-card-list">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span><strong>Ульяновск, ул. Марата, 1/3</strong> — центр города</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span><strong>Пн–Пт:</strong> 08:30 – 19:00</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M6.34 17.66l-2.83 2.83M17.66 6.34l2.83-2.83M4.93 19.07l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span><strong>Подъёмник</strong> и диагностическое оборудование</span>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    <span><strong>Можно со своими запчастями</strong></span>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
 
-<!-- Услуги -->
-<section class="services">
-    <div class="container">
-        <h2 class="section-title">Наши услуги</h2>
-        <p class="section-subtitle">Полный спектр работ для вашего автомобиля</p>
-        <div class="services-grid">
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <h4>Ремонт двигателя</h4>
-                <p>Капитальный и текущий ремонт, замена ГРМ, устранение течей и стуков.</p>
-            </div>
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <h4>Ходовая часть</h4>
-                <p>Диагностика и ремонт подвески, замена амортизаторов, рычагов, ступиц.</p>
-            </div>
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M8 12h8"/></svg>
-                </div>
-                <h4>Компьютерная диагностика</h4>
-                <p>Считывание и расшифровка ошибок, проверка электронных систем автомобиля.</p>
-            </div>
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><path d="M16 2h6v6"/><path d="M12 12 22 2"/></svg>
-                </div>
-                <h4>Техническое обслуживание</h4>
-                <p>Замена масла, фильтров, тормозных колодок и других расходников.</p>
-            </div>
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                </div>
-                <h4>Кузовной ремонт</h4>
-                <p>Устранение вмятин, покраска, рихтовка и восстановление геометрии кузова.</p>
-            </div>
-            <div class="service-item">
-                <div class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22L9 15M22 22L15 15M12 2L9 9L2 12L9 15L12 22L15 15L22 12L15 9L12 2Z"/></svg>
-                </div>
-                <h4>Подготовка к ТО</h4>
-                <p>Полная проверка автомобиля перед техосмотром и устранение замечаний.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- О сервисе -->
+<!-- ===== О СЕРВИСЕ ===== -->
 <section class="about">
     <div class="container">
-        <div class="highlight-box">
-            <h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                О нашем сервисе
-            </h2>
-            <p>
-                Мы — команда опытных автомехаников, которые любят своё дело. Работаем с 2010 года и за это время отремонтировали тысячи автомобилей. У нас собственный цех, современное оборудование и склад запчастей. Мы не просто ремонтируем машины — мы возвращаем вам уверенность на дороге.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <span style="background: rgba(79,122,255,0.15); padding: 6px 18px; border-radius: 40px; font-weight: 500;">🔧 Свой цех</span>
-                <span style="background: rgba(79,122,255,0.15); padding: 6px 18px; border-radius: 40px; font-weight: 500;">⚙️ Опытные мастера</span>
-                <span style="background: rgba(79,122,255,0.15); padding: 6px 18px; border-radius: 40px; font-weight: 500;">📦 Склад запчастей</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Галерея -->
-<section class="gallery">
-    <div class="container">
-        <h2 class="section-title">📸 Наш сервис</h2>
-        <p class="section-subtitle">Фотографии из мастерской и рабочие моменты</p>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/gEH85W1.jpeg" alt="Боксы автосервиса">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/BlfH1hZ.png" alt="Рабочая зона">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/rSH8iyP.jpeg" alt="Ремонт двигателя">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/pEk9HYi.jpeg" alt="Процесс ремонта">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/TPOnjv3.jpeg" alt="Работа с двигателем">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/3UGOc48.jpeg" alt="Автомобили в работе">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/Pj06PYc.jpeg" alt="Диагностика">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/UEdzxl6.jpeg" alt="Ремонт ходовой">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.imgur.com/v6VhzLJ.png" alt="Мастерская">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Футер -->
-<footer class="footer">
-    <div class="container">
-        <div class="social-links">
-            <a href="https://t.me/autotech" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Telegram-канал
-            </a>
-            <a href="https://t.me/autotech_manager" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Написать менеджеру
-            </a>
-        </div>
-        <p>
-            🔧 <strong>AutoTech</strong> — ваш надёжный автосервис. Ремонтируем с гарантией и душой.
+        <h2 class="section-title">Почему выбирают ЭЛИТЕК</h2>
+        <p class="section-subtitle">
+            Мы не просто меняем детали — мы разбираемся, почему техника неисправна, и устраняем причину. Работаем с автомобилями и квадроциклами.
         </p>
-        <p style="margin-top: 12px;">
-            🕒 Работаем ежедневно — <strong style="color:#f0f4ff;">с 9:00 до 21:00</strong>
-        </p>
-        <p style="margin-top: 20px; font-size: 0.85rem;">
-            Сделано с ❤️ для тех, кто ценит свой автомобиль.
-        </p>
-    </div>
-</footer>
 
-<script>
-    document.querySelectorAll('.btn-primary, .header-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            if (this.getAttribute('href') === '#form') {
-                e.preventDefault();
-                alert('🔧 Спасибо за заявку! Мы свяжемся с вами для уточнения деталей.');
-            }
-        });
-    });
-</script>
-
-</body>
-</html>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>15 лет опыта</h3>
+                <p>С 2009 года ремонтируем автомобили всех марок — от Audi и BMW до ВАЗ и ГАЗ. Знаем, как устроена техника, и не боимся сложных случаев.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Сложные случаи</h3>
+                <p>Если в другом сервисе не смогли найти причину или предложили менять всё подряд — приезжайте к нам. Разберёмся и починим.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke
