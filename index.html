@@ -1,581 +1,338 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЭЛИТЕК — автосервис в Ульяновске | Ремонт авто и квадроциклов</title>
-    <meta name="description" content="ЭЛИТЕК — автосервис в центре Ульяновска. Ремонт автомобилей и квадроциклов любой сложности. 15 лет опыта. Диагностика от 1000₽.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЭЛИТЕК — автосервис в Ульяновске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#2563eb;--blue-dark:#1e3a8a;--amber:#f59e0b;--graphite:#1e293b;--gray-light:#f8fafc;--gray-mid:#e2e8f0;--gray-text:#64748b}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-height:1.6;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-        :root {
-            --blue: #2563eb;
-            --blue-dark: #1e3a8a;
-            --amber: #f59e0b;
-            --amber-hover: #d97706;
-            --graphite: #1e293b;
-            --gray-light: #f8fafc;
-            --gray-mid: #e2e8f0;
-            --gray-text: #64748b;
-        }
+/* ШАПКА */
+.header{padding:20px 0;background:#fff;border-bottom:1px solid var(--gray-mid);position:sticky;top:0;z-index:100}
+.header-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:52px;width:auto}
+.logo-text{display:flex;flex-direction:column}
+.logo-text .name{font-size:1.4rem;font-weight:800;color:var(--blue-dark);line-height:1.1}
+.logo-text .tagline{font-size:.75rem;color:var(--gray-text);font-weight:500}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: var(--graphite);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+/* ВЫПАДАЮЩЕЕ МЕНЮ */
+.phone-dropdown{position:relative}
+.phone-trigger{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:50px;background:var(--blue);color:#fff;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:.3s;box-shadow:0 4px 14px rgba(37,99,235,.25);font-family:inherit}
+.phone-trigger:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.phone-trigger svg{width:18px;height:18px;stroke:currentColor}
+.phone-trigger .chevron{width:14px;height:14px;transition:transform .3s}
+.phone-dropdown.open .phone-trigger .chevron{transform:rotate(180deg)}
+.phone-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(30,58,138,.15);border:1px solid var(--gray-mid);padding:8px;min-width:290px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s;z-index:200}
+.phone-dropdown.open .phone-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.phone-menu-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;text-decoration:none;color:var(--graphite);transition:.2s}
+.phone-menu-item:hover{background:var(--gray-light)}
+.phone-menu-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1rem;flex-shrink:0}
+.phone-menu-info{display:flex;flex-direction:column;gap:2px}
+.phone-menu-info .name{font-weight:700;font-size:.95rem}
+.phone-menu-info .number{font-size:.9rem;color:var(--gray-text);font-weight:500}
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+/* HERO */
+.hero{padding:80px 0 100px;background:linear-gradient(135deg,var(--gray-light),#fff)}
+.hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.15);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:24px}
+.hero-badge svg{width:16px;height:16px;stroke:var(--blue)}
+.hero h1{font-size:3.2rem;font-weight:800;line-height:1.15;margin-bottom:24px}
+.hero h1 .accent{color:var(--blue)}
+.hero p{font-size:1.15rem;color:#475569;max-width:560px;margin-bottom:36px;line-height:1.7}
+.hero-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-note{font-size:.9rem;color:var(--gray-text);display:flex;align-items:center;gap:6px}
+.hero-note svg{width:16px;height:16px;stroke:var(--gray-text)}
+.hero-card{background:#fff;border-radius:24px;padding:36px 32px;box-shadow:0 20px 60px rgba(30,58,138,.1);border:1px solid var(--gray-mid)}
+.hero-card h3{font-size:1.15rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-card h3 svg{width:22px;height:22px;stroke:var(--blue)}
+.hero-card-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.hero-card-list li{display:flex;align-items:flex-start;gap:12px;font-size:.98rem;color:#475569}
+.hero-card-list li svg{width:20px;height:20px;stroke:var(--blue);flex-shrink:0;margin-top:2px}
+.hero-card-list li strong{color:var(--graphite);font-weight:600}
 
-        /* ===== ШАПКА ===== */
-        .header {
-            padding: 20px 0;
-            background: #ffffff;
-            border-bottom: 1px solid var(--gray-mid);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { height: 52px; width: auto; }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-text .name { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; color: var(--blue-dark); line-height: 1.1; }
-        .logo-text .tagline { font-size: 0.75rem; color: var(--gray-text); font-weight: 500; letter-spacing: 0.02em; }
+/* СЕКЦИИ */
+.section-title{font-size:2.2rem;font-weight:700;margin-bottom:16px;text-align:center}
+.section-subtitle{font-size:1.05rem;color:var(--gray-text);text-align:center;max-width:700px;margin:0 auto 50px;line-height:1.7}
 
-        /* ===== ВЫПАДАЮЩЕЕ МЕНЮ С НОМЕРАМИ ===== */
-        .phone-dropdown { position: relative; }
+/* О СЕРВИСЕ */
+.about{padding:80px 0;background:#fff}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.about-card{background:var(--gray-light);border-radius:20px;padding:32px 28px;border:1px solid var(--gray-mid);transition:.3s}
+.about-card:hover{background:#fff;border-color:var(--blue);box-shadow:0 12px 40px rgba(37,99,235,.1);transform:translateY(-4px)}
+.about-card .icon{display:flex;align-items:center;justify-content:center;width:52px;height:52px;background:rgba(37,99,235,.1);border-radius:14px;margin-bottom:18px}
+.about-card .icon svg{width:26px;height:26px;stroke:var(--blue);stroke-width:2}
+.about-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.about-card p{font-size:.95rem;color:var(--gray-text);line-height:1.65}
 
-        .phone-trigger {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            background: var(--blue);
-            color: #fff;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            border: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
-        }
-        .phone-trigger:hover {
-            background: var(--blue-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
-        }
-        .phone-trigger svg { width: 18px; height: 18px; stroke: currentColor; }
-        .phone-trigger .chevron { width: 14px; height: 14px; transition: transform 0.3s; }
-        .phone-dropdown.open .phone-trigger .chevron { transform: rotate(180deg); }
+/* УСЛУГИ */
+.services{padding:80px 0;background:var(--gray-light)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.service-item{background:#fff;border-radius:16px;padding:24px 26px;display:flex;align-items:center;gap:16px;border:1px solid var(--gray-mid);transition:.3s}
+.service-item:hover{border-color:var(--blue);box-shadow:0 8px 30px rgba(37,99,235,.08);transform:translateX(4px)}
+.service-item .icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(37,99,235,.08);border-radius:12px;flex-shrink:0}
+.service-item .icon svg{width:22px;height:22px;stroke:var(--blue);stroke-width:2}
+.service-item .text{font-size:1rem;font-weight:600}
 
-        .phone-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.15);
-            border: 1px solid var(--gray-mid);
-            padding: 8px;
-            min-width: 290px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-8px);
-            transition: 0.25s;
-            z-index: 200;
-        }
-        .phone-dropdown.open .phone-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .phone-menu-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--graphite);
-            transition: 0.2s;
-        }
-        .phone-menu-item:hover { background: var(--gray-light); }
-        .phone-menu-item + .phone-menu-item { border-top: 1px solid var(--gray-mid); border-radius: 0; }
-        .phone-menu-item:last-child:hover { border-radius: 0 0 12px 12px; }
-        .phone-menu-item:first-child:hover { border-radius: 12px 12px 0 0; }
+/* ГАЛЕРЕЯ */
+.gallery{padding:80px 0;background:#fff}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.gallery-item{border-radius:20px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--gray-mid);box-shadow:0 8px 30px rgba(30,58,138,.06);transition:.3s;background:var(--gray-light)}
+.gallery-item:hover{box-shadow:0 16px 40px rgba(30,58,138,.12);transform:translateY(-4px)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.gallery-item:hover img{transform:scale(1.03)}
 
-        .phone-menu-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-        .phone-menu-info { display: flex; flex-direction: column; gap: 2px; }
-        .phone-menu-info .name { font-weight: 700; font-size: 0.95rem; color: var(--graphite); }
-        .phone-menu-info .number { font-size: 0.9rem; color: var(--gray-text); font-weight: 500; }
+/* ЦЕНЫ */
+.prices{padding:80px 0;background:var(--gray-light)}
+.prices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:800px;margin:0 auto}
+.price-card{background:#fff;border-radius:20px;padding:32px;border:1px solid var(--gray-mid);display:flex;justify-content:space-between;align-items:center;gap:20px;transition:.3s}
+.price-card:hover{border-color:var(--amber);box-shadow:0 8px 30px rgba(245,158,11,.1)}
+.price-card .name{font-size:1.1rem;font-weight:600}
+.price-card .price{font-size:1.4rem;font-weight:800;color:var(--blue);white-space:nowrap}
+.price-card .price small{font-size:.75rem;font-weight:500;color:var(--gray-text)}
 
-        /* ===== ГЛАВНЫЙ БЛОК ===== */
-        .hero {
-            padding: 80px 0 100px;
-            background: linear-gradient(135deg, var(--gray-light) 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -100px; right: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(37, 99, 235, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.15);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--blue);
-            margin-bottom: 24px;
-        }
-        .hero-badge svg { width: 16px; height: 16px; stroke: var(--blue); }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            color: var(--graphite);
-            margin-bottom: 24px;
-        }
-        .hero h1 .accent { color: var(--blue); }
-        .hero p {
-            font-size: 1.15rem;
-            color: #475569;
-            max-width: 560px;
-            margin-bottom: 36px;
-            line-height: 1.7;
-        }
-        .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+/* ОТЗЫВЫ */
+.reviews{padding:80px 0;background:#fff}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.review-card{background:var(--gray-light);border-radius:20px;padding:32px;border:1px solid var(--gray-mid);transition:.3s}
+.review-card:hover{box-shadow:0 12px 40px rgba(30,58,138,.08);transform:translateY(-4px);background:#fff}
+.review-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.review-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.3rem;flex-shrink:0}
+.review-info .name{font-weight:700;font-size:1rem}
+.review-info .date{font-size:.85rem;color:var(--gray-text)}
+.review-stars{color:var(--amber);font-size:1.1rem;letter-spacing:2px;margin-bottom:12px}
+.review-text{font-size:.98rem;color:#475569;line-height:1.7}
 
-        .hero-note {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .hero-note svg { width: 16px; height: 16px; stroke: var(--gray-text); }
+/* CTA */
+.contact{padding:80px 0;background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;text-align:center}
+.contact h2{font-size:2.4rem;font-weight:800;margin-bottom:16px}
+.contact p{font-size:1.15rem;opacity:.9;max-width:600px;margin:0 auto 40px;line-height:1.7}
+.contact-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.contact-item{display:flex;align-items:center;gap:12px;font-size:1.05rem}
+.contact-item svg{width:22px;height:22px;stroke:#fff;opacity:.9}
+.contact-phone{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;padding:18px 40px;border-radius:50px;font-weight:700;font-size:1.15rem;text-decoration:none;box-shadow:0 12px 40px rgba(0,0,0,.2);transition:.3s}
+.contact-phone:hover{background:#d97706;transform:translateY(-3px)}
 
-        .hero-card {
-            background: #fff;
-            border-radius: 24px;
-            padding: 36px 32px;
-            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.1);
-            border: 1px solid var(--gray-mid);
-        }
-        .hero-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .hero-card h3 svg { width: 22px; height: 22px; stroke: var(--blue); }
-        .hero-card-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-        .hero-card-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.98rem;
-            color: #475569;
-        }
-        .hero-card-list li svg { width: 20px; height: 20px; stroke: var(--blue); flex-shrink: 0; margin-top: 2px; }
-        .hero-card-list li strong { color: var(--graphite); font-weight: 600; }
+/* ФУТЕР */
+.footer{padding:32px 0;background:#0f172a;color:#94a3b8;font-size:.9rem;text-align:center}
+.footer .container{display:flex;flex-direction:column;gap:8px}
+.footer strong{color:#e2e8f0}
 
-        /* ===== О СЕРВИСЕ ===== */
-        .about { padding: 80px 0; background: #fff; }
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--gray-text);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.7;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
-        .about-card {
-            background: var(--gray-light);
-            border-radius: 20px;
-            padding: 32px 28px;
-            border: 1px solid var(--gray-mid);
-            transition: 0.3s;
-        }
-        .about-card:hover {
-            background: #fff;
-            border-color: var(--blue);
-            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
-            transform: translateY(-4px);
-        }
-        .about-card .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 52px;
-            height: 52px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 14px;
-            margin-bottom: 18px;
-        }
-        .about-card .icon svg { width: 26px; height: 26px; stroke: var(--blue); stroke-width: 2; }
-        .about-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-        .about-card p { font-size: 0.95rem; color: var(--gray-text); line-height: 1.65; }
-
-        /* ===== УСЛУГИ ===== */
-        .services { padding: 80px 0; background: var(--gray-light); }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .service-item {
-            background: #fff;
-            border-radius: 16px;
-            padding: 24px 26px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            border: 1px solid var(--gray-mid);
-            transition: 0.3s;
-        }
-        .service-item:hover {
-            border-color: var(--blue);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.08);
-            transform: translateX(4px);
-        }
-        .service-item .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: rgba(37, 99, 235, 0.08);
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-        .service-item .icon svg { width: 22px; height: 22px; stroke: var(--blue); stroke-width: 2; }
-        .service-item .text { font-size: 1rem; font-weight: 600; }
-
-        /* ===== ГАЛЕРЕЯ ===== */
-        .gallery { padding: 80px 0; background: #fff; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .gallery-item {
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 4 / 3;
-            border: 1px solid var(--gray-mid);
-            box-shadow: 0 8px 30px rgba(30, 58, 138, 0.06);
-            transition: 0.3s;
-        }
-        .gallery-item:hover {
-            box-shadow: 0 16px 40px rgba(30, 58, 138, 0.12);
-            transform: translateY(-4px);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: 0.5s;
-        }
-        .gallery-item:hover img { transform: scale(1.03); }
-
-        /* ===== ЦЕНЫ ===== */
-        .prices { padding: 80px 0; background: var(--gray-light); }
-        .prices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .price-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 32px;
-            border: 1px solid var(--gray-mid);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            transition: 0.3s;
-        }
-        .price-card:hover {
-            border-color: var(--amber);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.1);
-        }
-        .price-card .name { font-size: 1.1rem; font-weight: 600; }
-        .price-card .price { font-size: 1.4rem; font-weight: 800; color: var(--blue); white-space: nowrap; }
-        .price-card .price small { font-size: 0.75rem; font-weight: 500; color: var(--gray-text); }
-
-        /* ===== ОТЗЫВЫ ===== */
-        .reviews { padding: 80px 0; background: #fff; }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        .review-card {
-            background: var(--gray-light);
-            border-radius: 20px;
-            padding: 32px;
-            border: 1px solid var(--gray-mid);
-            transition: 0.3s;
-        }
-        .review-card:hover {
-            box-shadow: 0 12px 40px rgba(30, 58, 138, 0.08);
-            transform: translateY(-4px);
-            background: #fff;
-        }
-        .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-        .review-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-        .review-info .name { font-weight: 700; font-size: 1rem; }
-        .review-info .date { font-size: 0.85rem; color: var(--gray-text); }
-        .review-stars { color: var(--amber); font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 12px; }
-        .review-text { font-size: 0.98rem; color: #475569; line-height: 1.7; }
-
-        /* ===== CTA ===== */
-        .contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-            color: #fff;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50%; right: -20%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .contact .container { position: relative; z-index: 2; }
-        .contact h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
-        .contact p { font-size: 1.15rem; opacity: 0.9; max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.05rem;
-        }
-        .contact-item svg { width: 22px; height: 22px; stroke: #fff; opacity: 0.9; }
-
-        /* ===== ФУТЕР ===== */
-        .footer {
-            padding: 32px 0;
-            background: #0f172a;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        .footer .container { display: flex; flex-direction: column; gap: 8px; }
-        .footer strong { color: #e2e8f0; }
-
-        /* ===== АДАПТИВ ===== */
-        @media (max-width: 900px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .hero p { margin-left: auto; margin-right: auto; }
-            .hero-cta { justify-content: center; }
-            .hero h1 { font-size: 2.4rem; }
-            .hero-card { text-align: left; }
-            .section-title { font-size: 1.8rem; }
-            .contact h2 { font-size: 1.8rem; }
-            .contact-info { flex-direction: column; gap: 16px; align-items: center; }
-        }
-        @media (max-width: 600px) {
-            .header-inner { flex-direction: column; gap: 12px; }
-            .logo img { height: 42px; }
-            .hero { padding: 50px 0 60px; }
-            .hero h1 { font-size: 1.9rem; }
-            .hero p { font-size: 1rem; }
-            .phone-menu { right: auto; left: 50%; transform: translateX(-50%) translateY(-8px); min-width: 280px; }
-            .phone-dropdown.open .phone-menu { transform: translateX(-50%) translateY(0); }
-            .price-card { flex-direction: column; text-align: left; align-items: flex-start; }
-            .price-card .price { align-self: flex-end; }
-        }
-    </style>
+@media(max-width:900px){
+.hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+.hero p{margin-left:auto;margin-right:auto}
+.hero-cta{justify-content:center}
+.hero h1{font-size:2.4rem}
+.hero-card{text-align:left}
+.section-title{font-size:1.8rem}
+.contact h2{font-size:1.8rem}
+.contact-info{flex-direction:column;gap:16px;align-items:center}
+}
+@media(max-width:600px){
+.header-inner{flex-direction:column;gap:12px}
+.logo img{height:42px}
+.hero{padding:50px 0 60px}
+.hero h1{font-size:1.9rem}
+.hero p{font-size:1rem}
+.phone-menu{right:auto;left:50%;transform:translateX(-50%) translateY(-8px);min-width:280px}
+.phone-dropdown.open .phone-menu{transform:translateX(-50%) translateY(0)}
+.price-card{flex-direction:column;text-align:left;align-items:flex-start}
+.price-card .price{align-self:flex-end}
+}
+</style>
 </head>
 <body>
 
-<!-- ===== ШАПКА ===== -->
+<!-- ШАПКА -->
 <header class="header">
-    <div class="container header-inner">
-        <a href="/" class="logo">
-            <img src="https://i.postimg.cc/6QBLtJGS/6PKBkbg-Ib3-Spx-Kvepg6Ij-B7K-Imhim5FTju-ACHRr-Yo-R-6d-Dr0bk6JF5f-HY0Ob-Zx-NEtt9FWmp-Rojblo1p-NZg-EYu.jpg" alt="ЭЛИТЕК — автосервис">
-            <div class="logo-text">
-                <span class="name">ЭЛИТЕК</span>
-                <span class="tagline">автосервис в Ульяновске</span>
-            </div>
-        </a>
-
-        <!-- ВЫПАДАЮЩЕЕ МЕНЮ С ДВУМЯ НОМЕРАМИ -->
-        <div class="phone-dropdown" id="phoneDropdownHeader">
-            <button class="phone-trigger" onclick="toggleDropdown('phoneDropdownHeader')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                Позвонить
-                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="phone-menu">
-                <a href="tel:+79603767356" class="phone-menu-item">
-                    <div class="phone-menu-avatar">С</div>
-                    <div class="phone-menu-info">
-                        <span class="name">Сергей</span>
-                        <span class="number">+7 (960) 376-73-56</span>
-                    </div>
-                </a>
-                <a href="tel:+79176224243" class="phone-menu-item">
-                    <div class="phone-menu-avatar">А</div>
-                    <div class="phone-menu-info">
-                        <span class="name">Александр</span>
-                        <span class="number">+7 (917) 622-42-43</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+<div class="container header-inner">
+<a href="/" class="logo">
+<img src="https://i.postimg.cc/6QBLtJGS/6PKBkbg-Ib3-Spx-Kvepg6Ij-B7K-Imhim5FTju-ACHRr-Yo-R-6d-Dr0bk6JF5f-HY0Ob-Zx-NEtt9FWmp-Rojblo1p-NZg-EYu.jpg" alt="ЭЛИТЕК">
+<div class="logo-text">
+<span class="name">ЭЛИТЕК</span>
+<span class="tagline">автосервис в Ульяновске</span>
+</div>
+</a>
+<div class="phone-dropdown">
+<button class="phone-trigger" onclick="togglePhone(this)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Позвонить
+<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="phone-menu">
+<a href="tel:+79603767356" class="phone-menu-item">
+<div class="phone-menu-avatar">С</div>
+<div class="phone-menu-info">
+<span class="name">Сергей</span>
+<span class="number">+7 (960) 376-73-56</span>
+</div>
+</a>
+<a href="tel:+79176224243" class="phone-menu-item">
+<div class="phone-menu-avatar">А</div>
+<div class="phone-menu-info">
+<span class="name">Александр</span>
+<span class="number">+7 (917) 622-42-43</span>
+</div>
+</a>
+</div>
+</div>
+</div>
 </header>
 
-<!-- ===== ГЛАВНЫЙ БЛОК ===== -->
+<!-- HERO -->
 <section class="hero">
-    <div class="container hero-inner">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Работаем с 2009 года
-            </div>
-            <h1>
-                Автосервис <span class="accent">ЭЛИТЕК</span> в центре Ульяновска
-            </h1>
-            <p>
-                Ремонт автомобилей и квадроциклов любой сложности. Найдём причину неисправности, предложим оптимальный вариант и сделаем работу в срок. 15 лет опыта, честные цены, свои запчасти.
-            </p>
-            <div class="hero-cta">
-                <div class="phone-dropdown" id="phoneDropdownHero">
-                    <button class="phone-trigger" onclick="toggleDropdown('phoneDropdownHero')">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        Позвонить и записаться
-                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="phone-menu">
-                        <a href="tel:+79603767356" class="phone-menu-item">
-                            <div class="phone-menu-avatar">С</div>
-                            <div class="phone-menu-info">
-                                <span class="name">Сергей</span>
-                                <span class="number">+7 (960) 376-73-56</span>
-                            </div>
-                        </a>
-                        <a href="tel:+79176224243" class="phone-menu-item">
-                            <div class="phone-menu-avatar">А</div>
-                            <div class="phone-menu-info">
-                                <span class="name">Александр</span>
-                                <span class="number">+7 (917) 622-42-43</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <span class="hero-note">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    Пн–Пт с 08:30 до 19:00
-                </span>
-            </div>
-        </div>
+<div class="container hero-inner">
+<div>
+<div class="hero-badge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+Работаем с 2009 года
+</div>
+<h1>Автосервис <span class="accent">ЭЛИТЕК</span> в центре Ульяновска</h1>
+<p>Ремонт автомобилей и квадроциклов любой сложности. Найдём причину неисправности, предложим оптимальный вариант и сделаем работу в срок. 15 лет опыта, честные цены, свои запчасти.</p>
+<div class="hero-cta">
+<div class="phone-dropdown">
+<button class="phone-trigger" onclick="togglePhone(this)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Позвонить и записаться
+<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="phone-menu">
+<a href="tel:+79603767356" class="phone-menu-item">
+<div class="phone-menu-avatar">С</div>
+<div class="phone-menu-info">
+<span class="name">Сергей</span>
+<span class="number">+7 (960) 376-73-56</span>
+</div>
+</a>
+<a href="tel:+79176224243" class="phone-menu-item">
+<div class="phone-menu-avatar">А</div>
+<div class="phone-menu-info">
+<span class="name">Александр</span>
+<span class="number">+7 (917) 622-42-43</span>
+</div>
+</a>
+</div>
+</div>
+<span class="hero-note">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+Пн–Пт с 08:30 до 19:00
+</span>
+</div>
+</div>
 
-        <div class="hero-card">
-            <h3>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Мы находимся
-            </h3>
-            <ul class="hero-card-list">
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span><strong>Ульяновск, ул. Марата, 1/3</strong> — центр города</span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <span><strong>Пн–Пт:</strong> 08:30 – 19:00</span>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg"
+<div class="hero-card">
+<h3>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+Мы находимся
+</h3>
+<ul class="hero-card-list">
+<li>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<span><strong>Ульяновск, ул. Марата, 1/3</strong> — центр города</span>
+</li>
+<li>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span><strong>Пн–Пт:</strong> 08:30 – 19:00</span>
+</li>
+<li>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+<span><strong>Подъёмник</strong> и диагностическое оборудование</span>
+</li>
+<li>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+<span><strong>Можно со своими запчастями</strong></span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ПОЧЕМУ МЫ -->
+<section class="about">
+<div class="container">
+<h2 class="section-title">Почему выбирают ЭЛИТЕК</h2>
+<p class="section-subtitle">Мы не просто меняем детали — разбираемся, почему техника неисправна, и устраняем причину.</p>
+<div class="about-grid">
+<div class="about-card">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+<h3>15 лет опыта</h3>
+<p>С 2009 года ремонтируем автомобили всех марок — от Audi и BMW до ВАЗ и ГАЗ. Знаем, как устроена техника, и не боимся сложных случаев.</p>
+</div>
+<div class="about-card">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+<h3>Сложные случаи</h3>
+<p>Если в другом сервисе не смогли найти причину или предложили менять всё подряд — приезжайте к нам. Разберёмся и починим.</p>
+</div>
+<div class="about-card">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+<h3>Адекватные цены</h3>
+<p>Честная стоимость без навязывания лишних работ. Согласуем смету заранее и не меняем её в процессе без вашего согласия.</p>
+</div>
+<div class="about-card">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5M5 7v10h14V7z"/></svg></div>
+<h3>Поможем с запчастями</h3>
+<p>Подберём и закажем запчасти практически на любой автомобиль или квадроцикл. Можно со своими.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- УСЛУГИ -->
+<section class="services">
+<div class="container">
+<h2 class="section-title">Что ремонтируем</h2>
+<p class="section-subtitle">Полный спектр работ по автомобилям и квадроциклам</p>
+<div class="services-grid">
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+<div class="text">Диагностика и ремонт двигателя</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+<div class="text">Ходовая часть и подвеска</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+<div class="text">Рулевая система</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4 12h16"/></svg></div>
+<div class="text">Тормозная система</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+<div class="text">Топливная система</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+<div class="text">Автоэлектрика и диагностика</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+<div class="text">Слесарные работы</div>
+</div>
+<div class="service-item">
+<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+<div class="text">Сварочные работы</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ГАЛЕРЕЯ -->
+<section class="gallery">
+<div class="container">
+<h2 class="section-title">Наш сервис</h2>
+<p class="section-subtitle">Загляните внутрь — у нас чисто, светло и всё под рукой</p>
+<div class="gallery-grid">
+<div class="gallery-item">
+<img src="https://i.postimg.cc/7J1h2ssc/ml-Lo-Lg4Bp-Ajf-Me-WM9r-SH0SIwwh-Me-Wd-An-Mi-BSP0h-Eyhy-2Me2Qux-Op-Zqr0SVJNM9Lp-Pg-Rvk-U8ZQ3Mo-ZQOy2.jpg" alt="Автомобили в сервисе ЭЛИТЕК">
+</div>
+<div class="gallery-item">
+<img src="https://i.postimg.cc/xNG8zxpD
