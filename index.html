@@ -12,8 +12,6 @@
 :root{--blue:#2563eb;--blue-dark:#1e3a8a;--amber:#f59e0b;--graphite:#1e293b;--gray-light:#f8fafc;--gray-mid:#e2e8f0;--gray-text:#64748b}
 body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-height:1.6;overflow-x:hidden}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
-
-/* ШАПКА */
 .header{padding:20px 0;background:#fff;border-bottom:1px solid var(--gray-mid);position:sticky;top:0;z-index:100}
 .header-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -21,8 +19,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .logo-text{display:flex;flex-direction:column}
 .logo-text .name{font-size:1.4rem;font-weight:800;color:var(--blue-dark);line-height:1.1}
 .logo-text .tagline{font-size:.75rem;color:var(--gray-text);font-weight:500}
-
-/* ВЫПАДАЮЩЕЕ МЕНЮ */
 .phone-dropdown{position:relative}
 .phone-trigger{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:50px;background:var(--blue);color:#fff;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:.3s;box-shadow:0 4px 14px rgba(37,99,235,.25);font-family:inherit}
 .phone-trigger:hover{background:var(--blue-dark);transform:translateY(-2px)}
@@ -37,8 +33,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .phone-menu-info{display:flex;flex-direction:column;gap:2px}
 .phone-menu-info .name{font-weight:700;font-size:.95rem}
 .phone-menu-info .number{font-size:.9rem;color:var(--gray-text);font-weight:500}
-
-/* HERO */
 .hero{padding:80px 0 100px;background:linear-gradient(135deg,var(--gray-light),#fff)}
 .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.15);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:24px}
@@ -56,12 +50,8 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .hero-card-list li{display:flex;align-items:flex-start;gap:12px;font-size:.98rem;color:#475569}
 .hero-card-list li svg{width:20px;height:20px;stroke:var(--blue);flex-shrink:0;margin-top:2px}
 .hero-card-list li strong{color:var(--graphite);font-weight:600}
-
-/* СЕКЦИИ */
 .section-title{font-size:2.2rem;font-weight:700;margin-bottom:16px;text-align:center}
 .section-subtitle{font-size:1.05rem;color:var(--gray-text);text-align:center;max-width:700px;margin:0 auto 50px;line-height:1.7}
-
-/* О СЕРВИСЕ */
 .about{padding:80px 0;background:#fff}
 .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
 .about-card{background:var(--gray-light);border-radius:20px;padding:32px 28px;border:1px solid var(--gray-mid);transition:.3s}
@@ -70,8 +60,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .about-card .icon svg{width:26px;height:26px;stroke:var(--blue);stroke-width:2}
 .about-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
 .about-card p{font-size:.95rem;color:var(--gray-text);line-height:1.65}
-
-/* УСЛУГИ */
 .services{padding:80px 0;background:var(--gray-light)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .service-item{background:#fff;border-radius:16px;padding:24px 26px;display:flex;align-items:center;gap:16px;border:1px solid var(--gray-mid);transition:.3s}
@@ -79,37 +67,22 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .service-item .icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(37,99,235,.08);border-radius:12px;flex-shrink:0}
 .service-item .icon svg{width:22px;height:22px;stroke:var(--blue);stroke-width:2}
 .service-item .text{font-size:1rem;font-weight:600}
-
-/* ГАЛЕРЕЯ */
 .gallery{padding:80px 0;background:#fff}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
 .gallery-item{border-radius:20px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--gray-mid);box-shadow:0 8px 30px rgba(30,58,138,.06);transition:.3s;background:var(--gray-light)}
 .gallery-item:hover{box-shadow:0 16px 40px rgba(30,58,138,.12);transform:translateY(-4px)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
 .gallery-item:hover img{transform:scale(1.03)}
-
-/* ЦЕНЫ */
-.prices{padding:80px 0;background:var(--gray-light)}
-.prices-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:800px;margin:0 auto}
-.price-card{background:#fff;border-radius:20px;padding:32px;border:1px solid var(--gray-mid);display:flex;justify-content:space-between;align-items:center;gap:20px;transition:.3s}
-.price-card:hover{border-color:var(--amber);box-shadow:0 8px 30px rgba(245,158,11,.1)}
-.price-card .name{font-size:1.1rem;font-weight:600}
-.price-card .price{font-size:1.4rem;font-weight:800;color:var(--blue);white-space:nowrap}
-.price-card .price small{font-size:.75rem;font-weight:500;color:var(--gray-text)}
-
-/* ОТЗЫВЫ */
-.reviews{padding:80px 0;background:#fff}
+.reviews{padding:80px 0;background:var(--gray-light)}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.review-card{background:var(--gray-light);border-radius:20px;padding:32px;border:1px solid var(--gray-mid);transition:.3s}
-.review-card:hover{box-shadow:0 12px 40px rgba(30,58,138,.08);transform:translateY(-4px);background:#fff}
+.review-card{background:#fff;border-radius:20px;padding:32px;border:1px solid var(--gray-mid);transition:.3s}
+.review-card:hover{box-shadow:0 12px 40px rgba(30,58,138,.08);transform:translateY(-4px)}
 .review-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .review-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.3rem;flex-shrink:0}
 .review-info .name{font-weight:700;font-size:1rem}
 .review-info .date{font-size:.85rem;color:var(--gray-text)}
 .review-stars{color:var(--amber);font-size:1.1rem;letter-spacing:2px;margin-bottom:12px}
 .review-text{font-size:.98rem;color:#475569;line-height:1.7}
-
-/* CTA */
 .contact{padding:80px 0;background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;text-align:center}
 .contact h2{font-size:2.4rem;font-weight:800;margin-bottom:16px}
 .contact p{font-size:1.15rem;opacity:.9;max-width:600px;margin:0 auto 40px;line-height:1.7}
@@ -118,12 +91,9 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .contact-item svg{width:22px;height:22px;stroke:#fff;opacity:.9}
 .contact-phone{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;padding:18px 40px;border-radius:50px;font-weight:700;font-size:1.15rem;text-decoration:none;box-shadow:0 12px 40px rgba(0,0,0,.2);transition:.3s}
 .contact-phone:hover{background:#d97706;transform:translateY(-3px)}
-
-/* ФУТЕР */
 .footer{padding:32px 0;background:#0f172a;color:#94a3b8;font-size:.9rem;text-align:center}
 .footer .container{display:flex;flex-direction:column;gap:8px}
 .footer strong{color:#e2e8f0}
-
 @media(max-width:900px){
 .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
 .hero p{margin-left:auto;margin-right:auto}
@@ -142,13 +112,10 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 .hero p{font-size:1rem}
 .phone-menu{right:auto;left:50%;transform:translateX(-50%) translateY(-8px);min-width:280px}
 .phone-dropdown.open .phone-menu{transform:translateX(-50%) translateY(0)}
-.price-card{flex-direction:column;text-align:left;align-items:flex-start}
-.price-card .price{align-self:flex-end}
 }
 </style>
 </head>
 <body>
-
 <!-- ШАПКА -->
 <header class="header">
 <div class="container header-inner">
@@ -335,4 +302,120 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--graphite);line-h
 <img src="https://i.postimg.cc/7J1h2ssc/ml-Lo-Lg4Bp-Ajf-Me-WM9r-SH0SIwwh-Me-Wd-An-Mi-BSP0h-Eyhy-2Me2Qux-Op-Zqr0SVJNM9Lp-Pg-Rvk-U8ZQ3Mo-ZQOy2.jpg" alt="Автомобили в сервисе ЭЛИТЕК">
 </div>
 <div class="gallery-item">
-<img src="https://i.postimg.cc/xNG8zxpD
+<img src="https://i.postimg.cc/xNG8zxpD/o7V9j-TI1GF8Ig-Jqzes58Mx-Voo0BMx-Kq-AP970GY3o2h-LMm-F7rx9Fta-C6Sh-Qf87y-VFp4IYF5BG4ht-AJOr9HPmq-ICHR.jpg" alt="Вид на сервис ЭЛИТЕК">
+</div>
+<div class="gallery-item">
+<img src="https://i.postimg.cc/zHwvgt2Y/tkelw-Vi-T68CTn-Ip1Vi-Apwnr-Qw-ha-Ep-Qt-Fwsu-c5Cu-HNLy-EVDCR6g-C3Fyp-KODbdfv-D5j46g-MM08B0Srrqp-IBpb.jpg" alt="Рабочая зона сервиса ЭЛИТЕК">
+</div>
+</div>
+</div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="reviews">
+<div class="container">
+<h2 class="section-title">Отзывы клиентов</h2>
+<p class="section-subtitle">Нам доверяют — и возвращаются снова</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">А</div>
+<div class="review-info">
+<div class="name">Александр</div>
+<div class="date">2 сентября</div>
+</div>
+</div>
+<div class="review-stars">★★★★★</div>
+<div class="review-text">Качественный сервис, спасибо огромное. Сергею отдельная благодарность — разобрался в проблеме быстро и без лишних слов.</div>
+</div>
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">Д</div>
+<div class="review-info">
+<div class="name">Дмитрий</div>
+<div class="date">15 августа</div>
+</div>
+</div>
+<div class="review-stars">★★★★★</div>
+<div class="review-text">Обращался с квадроциклом — нигде не могли найти причину. Здесь разобрались за пару дней. Рекомендую.</div>
+</div>
+<div class="review-card">
+<div class="review-header">
+<div class="review-avatar">М</div>
+<div class="review-info">
+<div class="name">Михаил</div>
+<div class="date">3 июля</div>
+</div>
+</div>
+<div class="review-stars">★★★★★</div>
+<div class="review-text">Цены адекватные, работают честно. Понравилось, что не навязывают лишнего и объясняют всё по делу.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="contact">
+<div class="container">
+<h2>Запишитесь на ремонт</h2>
+<p>Позвоните — подскажем, что делать, и подберём удобное время. Консультация бесплатная.</p>
+<div class="contact-info">
+<div class="contact-item">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Ульяновск, ул. Марата, 1/3</span>
+</div>
+<div class="contact-item">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span>Пн–Пт: 08:30 – 19:00</span>
+</div>
+</div>
+<a href="tel:+79603767356" class="contact-phone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Позвонить: +7 (960) 376-73-56
+</a>
+</div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+<div class="container">
+<div><strong>ЭЛИТЕК</strong> — автосервис в Ульяновске</div>
+<div>ул. Марата, 1/3 · Пн–Пт 08:30–19:00</div>
+<div style="margin-top:8px;font-size:.8rem">© 2024 ЭЛИТЕК. Все права защищены.</div>
+</div>
+</footer>
+<script>
+function togglePhone(btn) {
+    var dropdown = btn.closest('.phone-dropdown');
+    var isOpen = dropdown.classList.contains('open');
+    // Закрываем все открытые меню
+    document.querySelectorAll('.phone-dropdown').forEach(function(d) {
+        d.classList.remove('open');
+    });
+    // Если текущее было закрыто — открываем
+    if (!isOpen) {
+        dropdown.classList.add('open');
+    }
+}
+
+// Закрываем меню при клике вне его
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.phone-dropdown')) {
+        document.querySelectorAll('.phone-dropdown').forEach(function(d) {
+            d.classList.remove('open');
+        });
+    }
+});
+
+// Закрываем при клике на ссылку внутри меню (чтобы переход сработал)
+document.querySelectorAll('.phone-menu-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.phone-dropdown').forEach(function(d) {
+            d.classList.remove('open');
+        });
+    });
+});
+</script>
+
+</body>
+</html>
